@@ -1,0 +1,60 @@
+{
+  "name": "steal-hmr",
+  "version": "0.1.0",
+  "description": "Hot module replacment (reload) for StealJS/System.js",
+  "main": "hmr.js",
+  "files": [
+    "css.js",
+    "hmr.js",
+    "app",
+    "index.html",
+    "README.md",
+    "package.json"
+  ],
+  "scripts": {
+    "app": "watchalive",
+    "test": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whitecolor/steal-hmr.git"
+  },
+  "keywords": [
+    "stealjs",
+    "systemjs",
+    "hmr",
+    "hot",
+    "reload"
+  ],
+  "author": "whitecolor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/whitecolor/steal-hmr/issues"
+  },
+  "homepage": "https://github.com/whitecolor/steal-hmr",
+  "devDependencies": {
+    "steal": "^0.13.2",
+    "steal-lp": "github:whitecolor/steal-lp",
+    "watchalive": "^1.1.2",
+    "watchalive-less": "^0.1.0"
+  },
+  "system": {
+    "npmAlgorithm": "flat",
+    "transpiler": "babel",
+    "babelOptions": {
+      "blacklist": []
+    },
+    "map": {
+      "./steal-hmr": "../hmr",
+      "./lp": "steal-lp"
+    },
+    "npmIgnore": [
+      "watchalive", "watchalive-less"
+    ]
+  },
+  "watchalive": {
+    "debug": true,
+    "data": true,
+    "plugin": ["less"]
+  }
+}

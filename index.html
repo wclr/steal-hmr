@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+
+  <script src="/node_modules/steal/steal.js" config="/package.json!npm">
+    import HMR from 'steal-hmr'
+
+    // map styles to use build-in support for css hot-reload
+    System.config({map: {
+      $css: 'steal-hmr/css',
+      $less: 'steal-hmr/css'
+    }})
+
+    new HMR({
+      // auto load of main module will happen
+      main: 'app/app',
+      // outputs some debug messages
+      debug: true,
+      // tells HRM to reload dependants for all *.js
+      dependants: /\.js$/,
+      // tells when to reload whole page
+      page: [/index\.html/, /node_modules/],
+      // event that gives file changes
+      handle: watchalive.onFiles,
+      // teardown happens when 'main' will be reloaded
+      teardown: () => {
+        document.body.innerHTML = ''
+        watchalive.showUI()
+      }
+    })
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>
