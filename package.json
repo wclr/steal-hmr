@@ -1,7 +1,7 @@
 {
   "name": "steal-hmr",
   "version": "0.1.0",
-  "description": "Hot module replacment (reload) for StealJS/System.js",
+  "description": "Hot module replacement (reload) for StealJS/System.js",
   "main": "hmr.js",
   "files": [
     "css.js",
@@ -12,7 +12,7 @@
     "package.json"
   ],
   "scripts": {
-    "app": "watchalive",
+    "start": "watchalive",
     "test": "standard"
   },
   "repository": {
@@ -53,7 +53,6 @@
     ]
   },
   "watchalive": {
-    "debug": true,
     "data": true,
     "plugin": ["less"]
   }

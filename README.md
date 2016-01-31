@@ -11,9 +11,10 @@ that allows you to load ES6/CJS/AMD modules right inside your browser while work
 
 And **Steal-HMR** is a small add-on for StealJS/System.js that **allow to tune hot module replacement** nicely.
 
-Hot module replacement/reloading with StealJS/System.js works much faster then alternative solutions 
-for example [Webpack](https://github.com/webpack/webpack). Because there is no need to rebuild/re-bundle files on server side, 
-it just loads only changed file(s) and replaces already loaded modules using SystemJS mechanics.
+Hot module replacement/reloading with StealJS/System.js works actually **faster (in terms of DX)** 
+then alternative solutions  for example [Webpack](https://github.com/webpack/webpack). Because there is no need 
+to prepare anything (for example diff bundle) on on server side, it just loads only changed file(s) 
+and replaces already loaded modules using SystemJS mechanics.
 
 ##Install
 
@@ -42,10 +43,11 @@ sources of changed files so loader will not even have to make a single request t
     // auto load of main module will happen
     main: 'app/app',
     
-    // outputs some debug messages
+    // to output some debug messages
     debug: true,
     
-    // tells HRM to reload dependants for all *.js
+    // tells HRM to reload dependants for all *.js, 
+    // `false` by default
     dependants: /\.js$/,
         
     // tells when to reload whole page
@@ -58,7 +60,7 @@ sources of changed files so loader will not even have to make a single request t
     // {name: ... , source: ....}
     handle: watchalive.onFiles,
     
-    // teardown happens when 'main' will be reloaded
+    // teardown happens when 'main' reloads
     teardown: () => document.body.innerHTML = ''
   })
 </script> 
@@ -66,15 +68,15 @@ sources of changed files so loader will not even have to make a single request t
 
 ##Try demo app
 
-Try and test how all this works with module's demo app
+Try and test how all this works with module's demo app.
 ```bash
 git clone http://github.com/whitecolor/steal-hmr
-npm install
-npm run app (or on other port than 7000: npm run app -- --port 9876)
+npm install # please, use NPM 3, otherwice remove system.npmAlgorithm in package.json
+npm run start # app will run on 7000, to use other port: npm run start -- --port your_port
 ```
-Open your browser http://localhost:7000
-You can changes files `js/css/less` *inside the app folder* and see what happens
-Notice that css/less reload do not made any changes to apps current state
+- Open your browser `http://localhost:7000`
+- You can changes files `js/css/less` *inside the app folder* and see what happens
+- Notice that css/less reload do not made any changes to apps current state
 
 ##Licence
 
