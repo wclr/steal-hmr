@@ -16,7 +16,7 @@ than alternative solutions  for example [Webpack](https://github.com/webpack/web
 to prepare something (for example diff bundle) on on server side, it just loads only changed file(s) 
 and replaces already loaded modules using SystemJS mechanics.
 
-###This demo shows hot reloading implemented with Steal-HMR for [CanJS UI framework](http://github.com/whitecolor/can-hot)
+####This demo shows hot reloading implemented with Steal-HMR for [CanJS UI framework](http://github.com/whitecolor/can-hot)
 ![can-hot](https://cloud.githubusercontent.com/assets/736697/12709893/5b1727e8-c8d2-11e5-8f69-faf73ede4559.gif)
 
 ##Install

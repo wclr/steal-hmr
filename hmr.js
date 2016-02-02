@@ -218,6 +218,15 @@ class HotReload {
     }
   }
 
+  teardown (deleted) {
+    this._plugins.forEach(
+      p => typeof p.teardown === 'function' && p.teardown(deleted)
+    )
+    if (this.options.teardown) {
+      this.options.teardown(deleted)
+    }
+  }
+
   handle (eventFn) {
     eventFn((files) => {
       this.reloadChanges(files)
@@ -300,8 +309,8 @@ class HotReload {
     })
 
     if (deleted.length) {
-      if (options.teardown && deleted.indexOf(main) >= 0) {
-        options.teardown(deleted)
+      if (deleted.indexOf(main) >= 0) {
+        this.teardown(deleted)
       }
 
       if (this.before) {
