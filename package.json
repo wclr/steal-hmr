@@ -1,6 +1,6 @@
 {
   "name": "steal-hmr",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Hot module replacement (reload) for StealJS/System.js",
   "main": "hmr.js",
   "files": [
@@ -34,7 +34,7 @@
   "homepage": "https://github.com/whitecolor/steal-hmr",
   "devDependencies": {
     "steal": "^0.13.2",
-    "steal-lp": "github:whitecolor/steal-lp",
+    "steal-lp": "^0.1.1",
     "watchalive": "^1.1.2",
     "watchalive-less": "^0.1.0"
   },
@@ -43,10 +43,6 @@
     "transpiler": "babel",
     "babelOptions": {
       "blacklist": []
-    },
-    "map": {
-      "./steal-hmr": "../hmr",
-      "./lp": "steal-lp"
     },
     "npmIgnore": [
       "watchalive", "watchalive-less"
