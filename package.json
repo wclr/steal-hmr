@@ -1,6 +1,6 @@
 {
   "name": "steal-hmr",
-  "version": "0.1.1",
+  "version": "0.2.1",
   "description": "Hot module replacement (reload) for StealJS/System.js",
   "main": "hmr.js",
   "files": [

@@ -110,7 +110,11 @@ class HotReload {
     extend(this.options, options)
 
     options = this.options
-
+    
+    if (Array.isArray(options.plugin)) {
+      options.plugin.forEach(p => this.plugin(p))
+    }
+    
     if (this.options.bindReloadKeys && !this._bindReloadKeysHandler) {
       this._bindReloadKeysHandler = (ev) => {
         ev = ev || window.event
@@ -155,9 +159,7 @@ class HotReload {
         }
       }
     }
-    if (Array.isArray(options.plugin)) {
-      options.plugin.forEach(p => this._plugins.push(p))
-    }
+    
     if (typeof options.handle === 'function') {
       this.handle(options.handle)
     }
@@ -234,6 +236,9 @@ class HotReload {
   }
 
   plugin (plugin) {
+    if (typeof plugin.init === 'function'){
+      plugin.init(this.options)
+    }
     this._plugins.push(plugin)
   }
 
